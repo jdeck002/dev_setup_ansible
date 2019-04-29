@@ -21,9 +21,17 @@
 - name: Download Vim Cfg
   hosts: localhost
   tasks:
+    - name: create directories
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - { ~/.vim/bundle }
+        - { ~/.vim/autoload }
+
     - name: download vim cfg from github
       git:
-        repo: git@github.com:jdeck002/dotvim.git
+        repo: https://github.com/jdeck002/dotvim.git
         dest: ~/.vim
     - name: create .vimrc symlink
       file:
