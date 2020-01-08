@@ -17,6 +17,8 @@
         - vim
         - docker
         - ansible
+        - python3
+        - build-essential
 
 - name: Download Vim Cfg
   hosts: localhost
